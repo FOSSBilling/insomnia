@@ -1,34 +1,458 @@
 _id: spc_cf5f3247342f467c99dc9173d3aa1b70
 type: ApiSpec
 parentId: wrk_4b7f09d5670b45e2abe3d84f0de8d653
-modified: 1678902034455
+modified: 1678904212964
 created: 1678899650350
 fileName: The FOSSBilling API
-contents: |-
+contents: >+
   openapi: 3.0.0
+
   info:
-    title: The FOSSBilling guest API
-    description: The guest API of FOSSBilling (...)
+    title: The FOSSBilling API
+    description: This is the guest API of your FOSSBilling instance.
+
+        Every visitor can use any endpoint under this folder. **It requires no
+        authorization.**
     version: 0.3.0
-    
+
   servers:
-    - url: https://example.com/api/guest/
-    
+    - url: https://example.com/api/guest
+
   paths:
-    /system/version:
+    /guest/cookieconsent/message:
       get:
-        summary: Returns the version of the FOSSBilling instance
+        tags:
+          - Cookieconsent
+        summary: The message to be shown in the consent bar
+
+    /guest/cron/check:
+      get:
+        tags:
+          - Cron
+        summary: Run the cron jobs if it's late and web based cron is enabled
+
+    /guest/cron/settings:
+      get:
+        tags:
+          - Cron
+        summary: Cron settings
+
+    /guest/cron/is_late:
+      get:
+        tags:
+          - Cron
+        summary: Tell if the cron jobs are late
+
+    /guest/currency/get_pairs:
+      get:
+        tags:
+          - Currency
+        summary: The list of the available currencies
+
+    /guest/currency/get:
+      get:
+        tags:
+          - Currency
+        summary: Currency details by code
+        parameters:
+          - name: code
+            in: query
+            schema:
+              type: string
+            example: USD
+
+    /guest/currency/format:
+      get:
+        tags:
+          - Currency
+        summary: Currency conversion
+        parameters:
+          - name: price
+            in: query
+            schema:
+              type: integer
+            description: Price in the default currency.
+            example: '10'
+          - name: convert
+            in: query
+            schema:
+              type: integer
+            description: Actually convert to the foreign currency. True (1) by default.
+            example: '1'
+          - name: code
+            in: query
+            schema:
+              type: string
+            description: The code of the target currency. Must be available in FOSSBilling.
+            example: TRY
+          - name: without_currency
+            in: query
+            schema:
+              type: integer
+            description: >-
+              Only show the number without any strings attached. False (0) by
+              default.
+            example: '0'
         responses:
-          '200':
-            description: The version of the FOSSBilling instance
+          undefined:
             content:
-              application/json:
-                schema: 
-                  type: object
-                  properties:
-                    result:
-                      type: string
-                      example: '0.3.0'
-                    error:
-                      example: null
+              text/plain:
+                schema:
+                  type: string
+                example: |-
+                  {
+                      "result": "₺ 200.00",
+                      "error": null
+                  }
+
+    /guest/extension/is_on:
+      get:
+        tags:
+          - Extension
+        summary: Check if a module is activated
+        parameters:
+          - name: mod
+            in: query
+            schema:
+              type: string
+            example: Example
+
+    /guest/extension/theme:
+      get:
+        tags:
+          - Extension
+        summary: Information about the current theme
+
+    /guest/extension/settings:
+      get:
+        tags:
+          - Extension
+        summary: Public settings of a module
+        parameters:
+          - name: ext
+            in: query
+            schema:
+              type: string
+            example: Example
+
+    /guest/extension/languages:
+      get:
+        tags:
+          - Extension
+        summary: The list of the available languages
+
+    /guest/formbuilder/get:
+      get:
+        tags:
+          - Formbuilder
+        summary: Form details by ID
+        parameters:
+          - name: id
+            in: query
+            schema:
+              type: integer
+            example: '1'
+
+    /guest/kb/article_get_list:
+      get:
+        tags:
+          - Kb
+        summary: A paginated list of the published knowledge base articles
+        parameters:
+          - name: status
+            in: query
+            schema:
+              type: string
+            description: >-
+              Possible values: "active" and "draft". "active" by default.
+              (Optional)
+            example: active
+          - name: search
+            in: query
+            schema:
+              type: string
+            description: >-
+              A string to be searched in the title and the content of the
+              articles. (Optional)
+            example: How to
+          - name: kb_article_category_id
+            in: query
+            schema:
+              type: integer
+            description: Category ID to find the articles from. (Optional)
+            example: '1'
+          - name: per_page
+            in: query
+            schema:
+              type: integer
+            description: Entries to return per page. 100 by default. (Optional)
+            example: '100'
+          - name: page
+            in: query
+            schema:
+              type: integer
+            description: The number of the current page. (Optional)
+            example: '1'
+        responses:
+          undefined:
+            content:
+              text/plain:
+                schema:
+                  type: string
+                example: |-
+                  {
+                      "result": {
+                          "pages": 1,
+                          "page": "1",
+                          "per_page": "100",
+                          "total": 2,
+                          "list": [
+                              {
+                                  "id": 1,
+                                  "slug": "how-to-contact-support",
+                                  "title": "How to contact support",
+                                  "views": 0,
+                                  "created_at": "2022-12-01 12:00:00",
+                                  "status": "active",
+                                  "updated_at": "2022-12-01 12:00:00",
+                                  "category": {
+                                      "id": 2,
+                                      "slug": "how-to",
+                                      "title": "How to's"
+                                  }
+                              },
+                              {
+                                  "id": 2,
+                                  "slug": "how-to-place-new-order",
+                                  "title": "How to place new order",
+                                  "views": 0,
+                                  "created_at": "2022-12-01 12:00:00",
+                                  "status": "active",
+                                  "updated_at": "2022-12-01 12:00:00",
+                                  "category": {
+                                      "id": 2,
+                                      "slug": "how-to",
+                                      "title": "How to's"
+                                  }
+                              }
+                          ]
+                      },
+                      "error": null
+                  }
+    /guest/kb/article_get:
+      get:
+        tags:
+          - Kb
+        summary: Article details by ID
+        description: >-
+          You **have to** provide either the ID or the slug of the knowledge base
+          article.
+
+
+          If the two are provided in the same request, the ID will be preferred.
+        parameters:
+          - name: id
+            in: query
+            schema:
+              type: integer
+            description: ID of the knowledge base article.
+            example: '1'
+
+    /guest/news/get_list:
+      get:
+        tags:
+          - News
+        summary: A paginated list of the published news
+        parameters:
+          - name: search
+            in: query
+            schema:
+              type: string
+            description: >-
+              A string to be searched in the title and the content of the
+              articles. (Optional)
+            example: How to
+          - name: per_page
+            in: query
+            schema:
+              type: integer
+            description: Entries to return per page. 100 by default. (Optional)
+            example: '100'
+          - name: page
+            in: query
+            schema:
+              type: integer
+            description: The number of the current page. (Optional)
+            example: '1'
+        responses:
+          undefined:
+            content:
+              text/plain:
+                schema:
+                  type: string
+                example: |-
+                  {
+                      "result": {
+                          "pages": 1,
+                          "page": "1",
+                          "per_page": "100",
+                          "total": 2,
+                          "list": [
+                              {
+                                  "id": 1,
+                                  "slug": "how-to-contact-support",
+                                  "title": "How to contact support",
+                                  "views": 0,
+                                  "created_at": "2022-12-01 12:00:00",
+                                  "status": "active",
+                                  "updated_at": "2022-12-01 12:00:00",
+                                  "category": {
+                                      "id": 2,
+                                      "slug": "how-to",
+                                      "title": "How to's"
+                                  }
+                              },
+                              {
+                                  "id": 2,
+                                  "slug": "how-to-place-new-order",
+                                  "title": "How to place new order",
+                                  "views": 0,
+                                  "created_at": "2022-12-01 12:00:00",
+                                  "status": "active",
+                                  "updated_at": "2022-12-01 12:00:00",
+                                  "category": {
+                                      "id": 2,
+                                      "slug": "how-to",
+                                      "title": "How to's"
+                                  }
+                              }
+                          ]
+                      },
+                      "error": null
+                  }
+    /guest/news/get:
+      get:
+        tags:
+          - News
+        summary: News details by ID
+        description: >-
+          You **have to** provide either the ID or the slug of the knowledge base
+          article.
+
+
+          If the two are provided in the same request, the ID will be preferred.
+        parameters:
+          - name: id
+            in: query
+            schema:
+              type: integer
+            description: ID of the knowledge base article.
+            example: '1'
+
+    /guest/system/version:
+      get:
+        tags:
+          - System
+        summary: The version of the FOSSBilling instance
+
+    /guest/system/company:
+      get:
+        tags:
+          - System
+        summary: The company information
+
+    /guest/system/phone_codes:
+      get:
+        tags:
+          - System
+        summary: The list of the country calling codes
+
+    /guest/system/states:
+      get:
+        tags:
+          - System
+        summary: The list of the states of the USA
+
+    /guest/system/countries_eunion:
+      get:
+        tags:
+          - System
+        summary: The list of the countries in the European Union
+
+    /guest/system/countries:
+      get:
+        tags:
+          - System
+        summary: The list of the countries in the world
+
+    /guest/system/periods:
+      get:
+        tags:
+          - System
+        summary: The list of available payment periods
+
+    /guest/system/period_title:
+      get:
+        tags:
+          - System
+        summary: Payment period title by its identifier
+        parameters:
+          - name: code
+            in: query
+            schema:
+              type: string
+            example: 3M
+
+    /guest/system/template_exists:
+      get:
+        tags:
+          - System
+        summary: Check if a template exists for the client area
+        parameters:
+          - name: file
+            in: query
+            schema:
+              type: string
+            example: partial_pricing
+
+    /guest/system/locale:
+      get:
+        tags:
+          - System
+        summary: Locale of the current client
+
+    /guest/system/current_url:
+      get:
+        tags:
+          - System
+        summary: The current URL
+        description: >-
+          This endpoint is usually called within a Twig template. It returns the
+          current path.
+
+    /guest/system/get_pending_messages:
+      get:
+        tags:
+          - System
+        summary: Pending messages for the current session
+        description: Calling this endpoint will also clear the pending messages afterwards.
+
+    /guest/system/param:
+      get:
+        tags:
+          - System
+        summary: A system parameter by its key
+        parameters:
+          - name: key
+            in: query
+            schema:
+              type: string
+            example: company_logo
+
+    /guest/system/paginator:
+      get:
+        tags:
+          - System
+        summary: Paginator @TODO
+
 contentType: yaml
