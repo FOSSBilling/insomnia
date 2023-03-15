@@ -1,0 +1,33 @@
+_id: req_0c05c09e6a68497c9d91fe40e9ff5c2b
+type: Request
+parentId: fld_5942319d9ee24b44970e1c5769d046fd
+modified: 1678899286804
+created: 1678899286804
+url: "{{base_url}}/guest/currency/format"
+name: Currency conversion
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: price
+    value: "10"
+    disabled: false
+  - name: convert
+    value: "1"
+    disabled: false
+  - name: code
+    value: TRY
+    disabled: false
+  - name: without_currency
+    value: "0"
+    disabled: false
+headers: []
+authentication: {}
+metaSortKey: -1678899286804
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

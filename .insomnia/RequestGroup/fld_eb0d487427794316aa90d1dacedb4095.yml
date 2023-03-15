@@ -1,0 +1,11 @@
+_id: fld_eb0d487427794316aa90d1dacedb4095
+type: RequestGroup
+parentId: wrk_4b7f09d5670b45e2abe3d84f0de8d653
+modified: 1678899286864
+created: 1678899286864
+name: The FOSSBilling API
+description: ""
+environment:
+  base_url: http://localhost/api
+environmentPropertyOrder: null
+metaSortKey: -1678899286864

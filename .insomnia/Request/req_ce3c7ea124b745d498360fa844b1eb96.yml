@@ -1,0 +1,21 @@
+_id: req_ce3c7ea124b745d498360fa844b1eb96
+type: Request
+parentId: fld_16f2fe042437467f8c66348b9d296d21
+modified: 1678899286736
+created: 1678899286736
+url: "{{base_url}}/guest/system/phone_codes"
+name: The list of the country calling codes
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1678899286736
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

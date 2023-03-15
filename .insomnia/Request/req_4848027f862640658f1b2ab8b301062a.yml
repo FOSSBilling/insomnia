@@ -1,0 +1,21 @@
+_id: req_4848027f862640658f1b2ab8b301062a
+type: Request
+parentId: fld_5942319d9ee24b44970e1c5769d046fd
+modified: 1678899286813
+created: 1678899286813
+url: "{{base_url}}/guest/currency/get_pairs"
+name: The list of the available currencies
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1678899286813
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

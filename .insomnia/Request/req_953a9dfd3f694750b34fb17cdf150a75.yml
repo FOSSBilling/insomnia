@@ -1,0 +1,21 @@
+_id: req_953a9dfd3f694750b34fb17cdf150a75
+type: Request
+parentId: fld_7c7108e83a6740418790fa221493c3c7
+modified: 1678899286823
+created: 1678899286823
+url: "{{base_url}}/guest/cron/is_late"
+name: Tell if the cron jobs are late
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1678899286823
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

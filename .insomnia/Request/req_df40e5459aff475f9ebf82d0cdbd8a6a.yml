@@ -1,0 +1,21 @@
+_id: req_df40e5459aff475f9ebf82d0cdbd8a6a
+type: Request
+parentId: fld_e55ff12b73bc42c9a335cd57b28eb44d
+modified: 1678899286792
+created: 1678899286792
+url: "{{base_url}}/guest/extension/theme"
+name: Information about the current theme
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1678899286792
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,32 @@
+_id: req_bc876672be7a4e78a2441faf175a7493
+type: Request
+parentId: fld_9a28f6ea1bb14ec0bbfbc7711f69dd5a
+modified: 1678899286772
+created: 1678899286772
+url: "{{base_url}}/guest/kb/article_get"
+name: Article details by ID
+description: >-
+  You **have to** provide either the ID or the slug of the knowledge base
+  article.
+
+
+  If the two are provided in the same request, the ID will be preferred.
+method: GET
+body: {}
+parameters:
+  - name: id
+    value: "1"
+    disabled: false
+  - name: slug
+    value: how-to-contact-support
+    disabled: true
+headers: []
+authentication: {}
+metaSortKey: -1678899286772
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

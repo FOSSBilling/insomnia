@@ -1,0 +1,36 @@
+_id: req_85d68e4f509549348d08aa2bd2564fee
+type: Request
+parentId: fld_9a28f6ea1bb14ec0bbfbc7711f69dd5a
+modified: 1678899286775
+created: 1678899286775
+url: "{{base_url}}/guest/kb/article_get_list"
+name: A paginated list of the published knowledge base articles
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: status
+    value: active
+    disabled: false
+  - name: search
+    value: How to
+    disabled: false
+  - name: kb_article_category_id
+    value: "1"
+    disabled: false
+  - name: per_page
+    value: "100"
+    disabled: false
+  - name: page
+    value: "1"
+    disabled: false
+headers: []
+authentication: {}
+metaSortKey: -1678899286775
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,24 @@
+_id: req_56788147539c4b4da9e38a0bc6337385
+type: Request
+parentId: fld_16f2fe042437467f8c66348b9d296d21
+modified: 1678899286705
+created: 1678899286705
+url: "{{base_url}}/guest/system/param"
+name: A system parameter by its key
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: key
+    value: company_logo
+    disabled: false
+headers: []
+authentication: {}
+metaSortKey: -1678899286705
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

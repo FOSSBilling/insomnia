@@ -1,0 +1,21 @@
+_id: req_9c04fac4666d4d59a1ca365e68ca7806
+type: Request
+parentId: fld_16f2fe042437467f8c66348b9d296d21
+modified: 1678899286728
+created: 1678899286728
+url: "{{base_url}}/guest/system/countries"
+name: The list of the countries in the world
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1678899286728
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

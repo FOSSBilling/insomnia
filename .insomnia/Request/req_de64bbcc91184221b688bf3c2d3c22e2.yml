@@ -1,0 +1,21 @@
+_id: req_de64bbcc91184221b688bf3c2d3c22e2
+type: Request
+parentId: fld_16f2fe042437467f8c66348b9d296d21
+modified: 1678899286708
+created: 1678899286708
+url: "{{base_url}}/guest/system/get_pending_messages"
+name: Pending messages for the current session
+description: Calling this endpoint will also clear the pending messages afterwards.
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1678899286708
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

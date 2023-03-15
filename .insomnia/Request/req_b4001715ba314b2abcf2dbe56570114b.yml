@@ -1,0 +1,21 @@
+_id: req_b4001715ba314b2abcf2dbe56570114b
+type: Request
+parentId: fld_7c7108e83a6740418790fa221493c3c7
+modified: 1678899286828
+created: 1678899286828
+url: "{{base_url}}/guest/cron/settings"
+name: Cron settings
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1678899286828
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
